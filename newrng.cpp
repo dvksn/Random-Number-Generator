@@ -12,18 +12,19 @@ long long int ran (long long int a, long long int m , int c, int seed){
 }
 
 int main() {
-	long long int rand1=seed1,rand2=seed2;
+    long long int rand1=seed1,rand2=seed2;
     ofstream myfile ("randomNumbersNew.txt");
   
     for(int i=0;i<10000;i++)
     {
         rand1= ran(a1,m1,c1,rand1);
         rand2= ran(a2,m2,c2,rand2);
+	 ### using combined linear random number genrerator 
         long long int random_number=(rand1-rand2+m1)%m1;
         // double random_number_red = random_number/(double)(pow(10,10));
         double random_number_red = random_number/(double)m1;
 
-        
+	## storing random number
         if (myfile.is_open())
         {
             myfile << random_number_red <<"\n";
